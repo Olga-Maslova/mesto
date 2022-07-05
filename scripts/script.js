@@ -8,13 +8,13 @@ let jobInput = document.querySelector('.popup__input_type_job');
 let formElement = document.forms['profileEdit'];
 
 function popupOpen() {
-    popup.classList.add('popup_open');
+    popup.classList.add('popup__container_open');
     nameInput.value = Name.textContent.trim();
     jobInput.value = Job.textContent.trim();
 }
 
 function popupClose() {
-    popup.classList.remove('popup_open');
+    popup.classList.remove('popup__container_open');
 }
 
 function formSubmitHandler(evt) {
