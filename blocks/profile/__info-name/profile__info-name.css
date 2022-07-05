@@ -1,0 +1,19 @@
+.profile__info-name {
+  max-width: 294px;
+  max-height: 39px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 48px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__info-name {
+    grid-column: 2;
+    margin: 0 auto;
+    max-width: 189px;
+    max-height: 26px;
+    font-size: 27px;
+    line-height: 32.68px;
+  }
+}
