@@ -1,7 +1,9 @@
 .elements__element-container {
+    min-height: 80px;
     display: flex;
     background-color: #fff;
     justify-content: space-between;
     margin: 0;
     padding: 0 20px 0 21px;
+  overflow: hidden;
 }
