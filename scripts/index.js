@@ -60,10 +60,10 @@ function createNewCard(item) {
     cardImage.src = item.link;
 
     const cardLike = element.querySelector('.elements__element-button');
-    cardLike.addEventListener('click', cardLikeHandler);
+    cardLike.addEventListener('click', handlerCardLike);
 
     const cardDelete = element.querySelector('.elements__element-delete');
-    cardDelete.addEventListener('click', cardDeleteHandler);
+    cardDelete.addEventListener('click', handlerCardDelete);
 
 
     cardImage.addEventListener('click', function () {
@@ -107,11 +107,11 @@ function addNewCard(evt) {
     closePopup(formAdd);
 }
 
-function cardLikeHandler(evt) {
+function handlerCardLike(evt) {
     evt.target.classList.toggle('elements__element-button_active');
 }
 
-function cardDeleteHandler(evt) {
+function handlerCardDelete(evt) {
     evt.target.closest('.elements__element').remove();
 }
 
