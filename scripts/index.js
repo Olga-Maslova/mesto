@@ -21,15 +21,42 @@ const popupImage = document.querySelector('.popup__image');
 const popupText = document.querySelector('.popup__figcaption');
 
 const cardName = document.querySelector('.popup__input_type_cardName');
-const cardLink = document.querySelector('.popup__input_type_link');
+const cardLink = document.querySelector('.popup__input_type_cardUrl');
+
+const submitButton = formAdd.querySelector('.popup__submit-button');
 
 function openPopup(popupWindow) {
     popupWindow.classList.add('popup_open');
+    document.addEventListener('keydown', handleEsc);
 };
 
 function closePopup(popupWindow) {
     popupWindow.classList.remove('popup_open');
+    document.removeEventListener('keydown', handleEsc);
 };
+function handleOverlay(evt) {
+    if (evt.target.classList.contains('popup_open')) {
+        closePopup(evt.target);
+    };
+};
+
+function handleEsc(evt) {
+    if (evt.key === 'Escape') {
+        const windowOpen = document.querySelector('.popup_open');
+        closePopup(windowOpen);
+    };
+};
+
+const handleAddFormButton = () => {
+  submitButton.classList.add('popup__submit-button_disabled');
+  submitButton.disabled = true;
+};
+
+formAddOpen.addEventListener('click', () => {
+  handleAddFormButton();
+  formAddCard.reset();
+  openPopup(formAdd);
+});
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
@@ -39,10 +66,9 @@ function handleFormSubmit(evt) {
 }
 
 function handleProfile() {
-    nameInput.value = infoName.textContent.trim();
-    jobInput.value = infoJob.textContent.trim();
+    nameInput.value = '';
+    jobInput.value = '';
 };
-
 
 profileEdit.addEventListener('click', function () {
     handleProfile();
@@ -123,3 +149,7 @@ formAddClose.addEventListener('click', () => closePopup(formAdd));
 formAddCard.addEventListener('submit', addNewCard);
 
 imagePopupClose.addEventListener('click', () => closePopup(imagePopup));
+
+popupProfile.addEventListener('click', handleOverlay);
+formAdd.addEventListener('click', handleOverlay);
+imagePopup.addEventListener('click', handleOverlay);

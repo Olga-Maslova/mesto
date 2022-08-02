@@ -12,6 +12,7 @@
   cursor: pointer;
   transition: .3s ease-in-out;
   margin: 0;
+  outline: none;
 }
 
 .profile__info-button:hover {

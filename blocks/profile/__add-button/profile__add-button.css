@@ -11,6 +11,7 @@
     align-self: center;
     transition: .3s ease-in-out;
     cursor: pointer;
+    outline: none;
 }
 
 .profile__add-button:hover {
